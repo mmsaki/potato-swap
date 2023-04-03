@@ -1,9 +1,9 @@
 pragma solidity =0.5.16;
 
-import './interfaces/IUniswapV2ERC20.sol';
+import './interfaces/IPotatoswapERC20.sol';
 import './libraries/SafeMath.sol';
 
-contract UniswapV2ERC20 is IUniswapV2ERC20 {
+contract PotatoswapERC20 is IPotatoswapERC20 {
     using SafeMath for uint;
 
     string public constant name = 'Uniswap V2';
