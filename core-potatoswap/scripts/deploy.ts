@@ -1,4 +1,4 @@
-import  { UniswapV2Factory__factory } from "../typechain-types"
+import  { PotatoswapFactory__factory } from "../typechain-types"
 import { ethers } from "ethers";
 import dotenv from "dotenv"
 dotenv.config();
@@ -13,8 +13,8 @@ async function main() {
   const balance = await signer.getBalance();
   console.log(`The account ${signer.address} has a balance of ${balance} Wei`)
 
-  const UniswapV2FactoryContractFactory = new UniswapV2Factory__factory(signer);
-  const contract = await UniswapV2FactoryContractFactory.deploy("0xbC65B2A1801A4d81F74dBfbe3bCf6aD4f39e66c3");//this is _FEETOSETTER: <The wallet allowed to set the fees’ wallet>
+  const PotatoswapFactoryContractFactory = new PotatoswapFactory__factory(signer);
+  const contract = await PotatoswapFactoryContractFactory.deploy("0xbC65B2A1801A4d81F74dBfbe3bCf6aD4f39e66c3");//this is _FEETOSETTER: <The wallet allowed to set the fees’ wallet>
   const deployTxReceipt = await contract.deployTransaction.wait();
 
   //HRE deployment
