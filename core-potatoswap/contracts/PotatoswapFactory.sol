@@ -7,6 +7,8 @@ contract PotatoswapFactory is IPotatoswapFactory {
     address public feeTo;
     address public feeToSetter;
 
+    bytes32 public constant INIT_CODE_HASH = keccak256(abi.encodePacked(type(PotatoswapPair).creationCode));
+
     mapping(address => mapping(address => address)) public getPair;
     address[] public allPairs;
 
