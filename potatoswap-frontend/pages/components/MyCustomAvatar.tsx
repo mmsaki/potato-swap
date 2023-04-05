@@ -1,4 +1,5 @@
 import { Types } from 'connectkit';
+import Image from 'next/image';
 
 const MyCustomAvatar = ({
 	address,
@@ -18,12 +19,7 @@ const MyCustomAvatar = ({
 			}}
 		>
 			{ensImage && (
-				<img
-					src={ensImage}
-					alt={ensName ?? address}
-					width='100%'
-					height='100%'
-				/>
+				<Image src={ensImage} alt={'Ens Image'} width={'100'} height={'100'} />
 			)}
 		</div>
 	);
