@@ -18,23 +18,27 @@ const Home: NextPage = () => {
 	const { address, isConnected } = useAccount();
 
 	var { data, isError, isLoading } = useContractRead({
+		// @ts-ignore
 		address: tokenOne.address,
 		abi: potatoAbi.output.abi,
 		functionName: 'balanceOf',
 		args: [address],
 		watch: true,
 		onSuccess(data) {
+			// @ts-ignore
 			setTokenOneBalance(data.toString() / 10 ** 18);
 		},
 	});
 
 	var { data, isError, isLoading } = useContractRead({
+		// @ts-ignore
 		address: tokenTwo.address,
 		abi: potatoAbi.output.abi,
 		functionName: 'balanceOf',
 		args: [address],
 		watch: true,
 		onSuccess(data) {
+			// @ts-ignore
 			setTokenTwoBalance(data.toString() / 10 ** 18);
 		},
 	});
