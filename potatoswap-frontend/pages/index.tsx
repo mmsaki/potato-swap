@@ -14,10 +14,10 @@ import SwitchArrow from './assets/switch-arrow.svg';
 const Home: NextPage = () => {
 	const [tokenOne, setTokenOne] = useState(tokens[0]);
 	const [tokenTwo, setTokenTwo] = useState(tokens[1]);
-	const [tokenOneBalance, setTokenOneBalance] = useState(0);
-	const [tokenTwoBalance, setTokenTwoBalance] = useState(0);
-	const [tokenOneAmount, setTokenOneAmount] = useState(null);
-	const [tokenTwoAmount, setTokenTwoAmount] = useState(null);
+	const [tokenOneBalance, setTokenOneBalance] = useState('');
+	const [tokenTwoBalance, setTokenTwoBalance] = useState('');
+	const [tokenOneAmount, setTokenOneAmount] = useState('');
+	const [tokenTwoAmount, setTokenTwoAmount] = useState('');
 	const [prices, setPrices] = useState(null);
 
 	const { address, isConnected } = useAccount();
@@ -48,10 +48,14 @@ const Home: NextPage = () => {
 		},
 	});
 
+	function changeAmount(e: React.FormEvent<HTMLInputElement>) {
+		setTokenOneAmount(e.currentTarget.value);
+	}
+
 	function switchTokens() {
 		setPrices(null);
-		setTokenOneAmount(null);
-		setTokenTwoAmount(null);
+		setTokenOneAmount('');
+		setTokenTwoAmount('');
 		const one = tokenTwo;
 		const two = tokenOne;
 		setTokenOne(one);
@@ -85,12 +89,12 @@ const Home: NextPage = () => {
 					</div>
 					<div className='flex justify-between items-center h-12 mx-6 mb-2'>
 						<p className='text-light-gray text-4xl'>Swap</p>
-						<div className='flex justify-center gap-1 text-lg text-black bg-gray-400/20 rounded-lg px-2 py-1'>
-							<button className='flex justify-center px-4'>0.5%</button>
-							<button className='flex justify-center px-4 bg-white rounded-md shadow-md'>
+						<div className='flex justify-center items-center gap-1 text-md text-black bg-gray-400/20 rounded-lg px-2 py-1'>
+							<button className='flex justify-center px-4 py-1'>0.5%</button>
+							<button className='flex justify-center px-4 py-1 bg-white rounded-md shadow-md'>
 								2.5%
 							</button>
-							<button className='flex justify-center px-4'>5.0%</button>
+							<button className='flex justify-center px-4 py-1'>5.0%</button>
 						</div>
 					</div>
 					{/* swith */}
@@ -102,12 +106,15 @@ const Home: NextPage = () => {
 							<SwitchArrow />
 						</div>
 					</button>
+					{/* Token One */}
 					<div className='h-36 mx-6 mb-2 mt-10 bg-dark-green rounded-2xl'>
 						<div className='flex items-center justify-between mt-2'>
 							<input
 								className='border-none text-6xl ml-4 w-96 bg-transparent focus:outline-0 focus:ring-0 text-light-green placeholder-light-green'
 								placeholder='0'
 								type='number'
+								value={tokenOneAmount}
+								onChange={changeAmount}
 							/>
 							<button className='flex justify-between items-center w-60 h-16 bg-light-green mr-4 rounded-full'>
 								<div className='flex w-12 h-12 ml-2 bg-amber-400 rounded-full'>
@@ -131,13 +138,14 @@ const Home: NextPage = () => {
 							<button className='font-bold text-purple-100'>Max</button>
 						</div>
 					</div>
-
+					{/* Token two */}
 					<div className='h-36 mx-6 mb-10 bg-dark-green rounded-2xl'>
 						<div className='flex items-center justify-between mt-2'>
 							<input
 								className='border-none text-6xl ml-4 w-96 bg-transparent focus:outline-0 focus:ring-0 text-light-green  placeholder-light-green'
 								placeholder='0'
 								type='number'
+								value={tokenTwoAmount}
 							/>
 							<button className='flex justify-between items-center w-60 h-16 bg-light-green mr-4 rounded-full'>
 								<div className='flex w-12 h-12 ml-2 bg-amber-400 rounded-full'>
