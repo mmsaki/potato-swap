@@ -14,10 +14,10 @@ import SwitchArrow from './assets/switch-arrow.svg';
 const Home: NextPage = () => {
 	const [tokenOne, setTokenOne] = useState(tokens[0]);
 	const [tokenTwo, setTokenTwo] = useState(tokens[1]);
-	const [tokenOneBalance, setTokenOneBalance] = useState('');
-	const [tokenTwoBalance, setTokenTwoBalance] = useState('');
-	const [tokenOneAmount, setTokenOneAmount] = useState('');
-	const [tokenTwoAmount, setTokenTwoAmount] = useState('');
+	const [tokenOneBalance, setTokenOneBalance] = useState(0);
+	const [tokenTwoBalance, setTokenTwoBalance] = useState(0);
+	const [tokenOneAmount, setTokenOneAmount] = useState(0);
+	const [tokenTwoAmount, setTokenTwoAmount] = useState(0);
 	const [prices, setPrices] = useState(null);
 
 	const { address, isConnected } = useAccount();
@@ -49,13 +49,13 @@ const Home: NextPage = () => {
 	});
 
 	function changeAmount(e: React.FormEvent<HTMLInputElement>) {
-		setTokenOneAmount(e.currentTarget.value);
+		setTokenOneAmount(Number(e.currentTarget.value));
 	}
 
 	function switchTokens() {
 		setPrices(null);
-		setTokenOneAmount('');
-		setTokenTwoAmount('');
+		setTokenOneAmount(0);
+		setTokenTwoAmount(0);
 		const one = tokenTwo;
 		const two = tokenOne;
 		setTokenOne(one);
