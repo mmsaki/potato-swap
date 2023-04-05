@@ -8,6 +8,7 @@ import { useContractRead } from 'wagmi';
 import { useAccount } from 'wagmi';
 import { PotatoRouterV2 } from './utils';
 import ethers from 'ethers';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
 	const [tokenOne, setTokenOne] = useState(tokens[0]);
@@ -87,7 +88,7 @@ const Home: NextPage = () => {
 							/>
 							<button className='flex justify-between items-center w-60 h-16 bg-light-green mr-4 rounded-full'>
 								<div className='flex w-12 h-12 ml-2 bg-amber-400 rounded-full'>
-									<img src={tokenOne.img} />
+									<Image alt='token one logo' src={tokenOne.img} />
 								</div>
 								<div className='text-4xl pr-0 text-dark-green'>
 									{tokenOne.ticker}
@@ -111,7 +112,7 @@ const Home: NextPage = () => {
 							/>
 							<button className='flex justify-between items-center w-60 h-16 bg-light-green mr-4 rounded-full'>
 								<div className='flex w-12 h-12 ml-2 bg-amber-400 rounded-full'>
-									<img src={tokenTwo.img} />
+									<Image alt='token two logo' src={tokenTwo.img} />
 								</div>
 								<div className='text-4xl pr-0 text-dark-green'>
 									{tokenTwo.ticker}
