@@ -65,6 +65,7 @@ const Home: NextPage = () => {
 	function setMax() {
 		setTokenOneAmount(tokenOneBalance);
 	}
+
 	return (
 		<div className='border-box p-0 m-0'>
 			<NavBar />
