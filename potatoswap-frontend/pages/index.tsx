@@ -6,7 +6,7 @@ import { useState } from 'react';
 import potatoAbi from './abis/IPotatoToken.json';
 import { useContractRead } from 'wagmi';
 import { useAccount } from 'wagmi';
-import { PotatoRouterV2 } from './utils';
+import { PotatoRouterV2 } from '../utils';
 import ethers from 'ethers';
 import Image from 'next/image';
 
