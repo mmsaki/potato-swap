@@ -20,7 +20,7 @@ const NavBar = () => {
 						</Link>
 						<Link href='/' className='text-main-green font-bold mr-6'>
 							Swap
-							<span className='absolute bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-green-900 dark:text-green-300'>
+							<span className='absolute bg-green-100 text-green-800 text-xs font-medium px-2 ml-1 py-0.5 rounded dark:bg-green-900 dark:text-green-300'>
 								New
 							</span>
 						</Link>
