@@ -1,0 +1,3 @@
+{
+	"typescript.tsdk": "../potatoswap-frontend/node_modules/typescript/lib"
+}
