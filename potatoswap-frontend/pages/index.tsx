@@ -1,5 +1,6 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import type { NextPage } from 'next';
+import ArrowIcon from './assets/down-arrow.svg';
 
 const Home: NextPage = () => {
   return (
