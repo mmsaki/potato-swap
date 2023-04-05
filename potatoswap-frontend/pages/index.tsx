@@ -62,6 +62,9 @@ const Home: NextPage = () => {
 		setTokenTwo(two);
 	}
 
+	function setMax() {
+		setTokenOneAmount(tokenOneBalance);
+	}
 	return (
 		<div className='border-box p-0 m-0'>
 			<NavBar />
@@ -135,7 +138,9 @@ const Home: NextPage = () => {
 						</div>
 						<div className='flex gap-2 mt-1  text-light-green text-lg float-right mr-10'>
 							<p>Balance: {tokenOneBalance}</p>
-							<button className='font-bold text-purple-100'>Max</button>
+							<button onClick={setMax} className='font-bold text-purple-100'>
+								Max
+							</button>
 						</div>
 					</div>
 					{/* Token two */}
