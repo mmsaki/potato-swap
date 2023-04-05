@@ -4,8 +4,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: '**.githubusercontent.com',
-				hostname: '**.moralis.io',
+				hostname: '**',
 			},
 		],
 	},
