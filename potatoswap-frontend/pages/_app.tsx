@@ -1,67 +1,61 @@
-// import '../styles/global.css';
+import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import type { AppProps } from 'next/app';
-import {
-  RainbowKitProvider,
-  getDefaultWallets,
-  connectorsForWallets,
-} from '@rainbow-me/rainbowkit';
-import {
-  argentWallet,
-  trustWallet,
-  ledgerWallet,
-} from '@rainbow-me/rainbowkit/wallets';
+import { ConnectKitProvider, getDefaultClient } from 'connectkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { mainnet, polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
+import { goerli, polygonMumbai } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+import MyCustomAvatar from './components/MyCustomAvatar';
+
+const alchemyId = process.env.ALCHEMY_ID;
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [
-    mainnet,
-    polygon,
-    optimism,
-    arbitrum,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
-  ],
-  [publicProvider()]
+	[goerli, polygonMumbai],
+	[publicProvider()]
 );
 
-const { wallets } = getDefaultWallets({
-  appName: 'RainbowKit demo',
-  chains,
-});
+const client = createClient(
+	getDefaultClient({
+		appName: 'Potato Swap',
+		alchemyId,
+		chains,
+	})
+);
 
-const demoAppInfo = {
-  appName: 'Rainbowkit Demo',
-};
-
-const connectors = connectorsForWallets([
-  ...wallets,
-  {
-    groupName: 'Other',
-    wallets: [
-      argentWallet({ chains }),
-      trustWallet({ chains }),
-      ledgerWallet({ chains }),
-    ],
-  },
-]);
-
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
-  webSocketProvider,
-});
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider appInfo={demoAppInfo} chains={chains}>
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
-  );
+function App({ Component, pageProps }: AppProps) {
+	return (
+		<WagmiConfig client={client}>
+			<ConnectKitProvider
+				theme='soft'
+				mode='light'
+				options={{
+					customAvatar: MyCustomAvatar,
+					disclaimer: (
+						<>
+							By connecting your wallet you agree to the{' '}
+							<a
+								target='_blank'
+								rel='noopener noreferrer'
+								href='https://en.wikipedia.org/wiki/Terms_of_service'
+							>
+								Terms of Service
+							</a>{' '}
+							and{' '}
+							<a
+								target='_blank'
+								rel='noopener noreferrer'
+								href='https://en.wikipedia.org/wiki/Privacy_policy'
+							>
+								Privacy Policy
+							</a>
+						</>
+					),
+				}}
+			>
+				<Component {...pageProps} />
+			</ConnectKitProvider>
+		</WagmiConfig>
+	);
 }
 
-export default MyApp;
+export default App;
