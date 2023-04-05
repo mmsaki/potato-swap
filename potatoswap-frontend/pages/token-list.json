@@ -1,0 +1,16 @@
+[
+	{
+		"ticker": "P🥔T",
+		"img": "https://user-images.githubusercontent.com/98189596/229980215-ad47abeb-1046-4801-a409-b3e835a6a480.png",
+		"name": "POTATO",
+		"address": "0x1612d1706B7063525e29d742FE64be44a02DaDd6",
+		"decimals": 18
+	},
+	{
+		"ticker": "WETH",
+		"img": "https://cdn.moralis.io/eth/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png",
+		"name": "Wrapped Ethereum",
+		"address": "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
+		"decimals": 18
+	}
+]
