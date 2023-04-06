@@ -19,4 +19,4 @@ yarn dev
 - [ ] Enable Liquidity
 - [ ] Aggregate swap prices
 
-![](./imgs/screenshot-ui.png)
+![](./imgs/ui-screenshot.png)
