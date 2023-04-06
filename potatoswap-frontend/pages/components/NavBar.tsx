@@ -4,18 +4,17 @@ import Link from 'next/link';
 
 const NavBar = () => {
 	return (
-		<nav className='bg-transparent dark:bg-gray-900 w-full z-20 top-0 left-0'>
-			<div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-10 py-4 text-xl'>
-				<div className='grid grid-cols-3 px-4 justify-items-center items-center text-xl p-4 w-full'>
-					{/* <div
-					className='items-center justify-between hidden w-full md:flex md:w-auto md:order-1'
-					id='navbar-sticky'
-				> */}
-					<Link href='/' className='text-dark-gray text-xl'>
-						🥔 Potato Swap
-					</Link>
-					<div className='flex flex-row gap-10 text-light-gray'>
-						<Link href='/' className='cursor-not-allowed mr-8'>
+		<nav className='dark:bg-gray-900 w-full z-20 top-0 left-0'>
+			<div className='w-full mx-auto px-10 text-xl lg:grid-cols-3 sm:grid-cols-1'>
+				<div className='grid px-1 sm:gap-10 justify-items-center items-center text-xl w-full'>
+					<div className='flex justify-between w-full'>
+						<Link href='/' className='text-dark-gray text-xl sm:text-2xl'>
+							🥔 Potato Swap
+						</Link>
+						<ConnectButton />
+					</div>
+					<div className='text-light-gray flex justify-evenly w-full mb-2'>
+						<Link href='/' className='cursor-not-allowed lg:mr-8'>
 							Airdrop
 							<span className='absolute bg-red-100 text-red-800 text-xs font-medium mr-2 ml-1 px-2 py-0.5 rounded dark:bg-red-900 dark:text-red-300'>
 								Claim
@@ -28,7 +27,6 @@ const NavBar = () => {
 							Liquidity
 						</Link>
 					</div>
-					<ConnectButton />
 				</div>
 			</div>
 		</nav>
