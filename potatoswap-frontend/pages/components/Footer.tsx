@@ -2,16 +2,16 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-		<footer className='sticky top-[100vh] justify-center mt-8 lg:pt-0 w-auto lg:flex-row items-center xl:max-w-6xl 2xl:max-w-7xl bg-white dark:bg-gray-900'>
-			<div className='mx-auto ml-36 w-full lg:py-8'>
+		<footer className='bg-white text-xs justify-center mt-8 lg:pt-0 w-auto lg:flex-row items-center xl:max-w-6xl 2xl:max-w-7xl dark:bg-gray-900'>
+			<div className='mx-auto pl-6 pr-6 pb-2 lg:py-8'>
 				<div className='md:flex md:justify-between'>
-					<div className='grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3'>
+					<div className='grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-3'>
 						<div>
-							<h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
+							<h2 className='mb-3 text-xm font-semibold text-gray-900 uppercase dark:text-white'>
 								Resources
 							</h2>
 							<ul className='text-gray-600 dark:text-gray-400 font-medium'>
-								<li className='mb-4'>
+								<li className='mb-2'>
 									<a href='#' className='hover:underline'>
 										PotatoSwap
 									</a>
@@ -24,11 +24,11 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div>
-							<h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
+							<h2 className='mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
 								Follow us
 							</h2>
 							<ul className='text-gray-600 dark:text-gray-400 font-medium'>
-								<li className='mb-4'>
+								<li className='mb-2'>
 									<a
 										href='https://github.com/mmsaki/solidity-late-final-project'
 										className='hover:underline '
@@ -47,11 +47,11 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div>
-							<h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
+							<h2 className='mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
 								Legal
 							</h2>
 							<ul className='text-gray-600 dark:text-gray-400 font-medium'>
-								<li className='mb-4'>
+								<li className='mb-2'>
 									<a href='#' className='hover:underline'>
 										Privacy Policy
 									</a>
