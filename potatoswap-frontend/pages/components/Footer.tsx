@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-		<footer className='bg-white dark:bg-gray-900'>
-			<div className='mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8'>
+		<footer className='sticky top-[100vh] justify-center mt-8 lg:pt-0 w-auto lg:flex-row items-center xl:max-w-6xl 2xl:max-w-7xl bg-white dark:bg-gray-900'>
+			<div className='mx-auto ml-36 w-full lg:py-8'>
 				<div className='md:flex md:justify-between'>
 					<div className='grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3'>
 						<div>

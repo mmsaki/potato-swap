@@ -181,9 +181,7 @@ const Home: NextPage = () => {
 					</button>
 				</div>
 			</div>
-			<div className='fixed bottom-0 w-full'>
-				<Footer />
-			</div>
+			<Footer />
 		</div>
 	);
 };
