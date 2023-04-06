@@ -15,20 +15,17 @@ const NavBar = () => {
 						🥔 Potato Swap
 					</Link>
 					<div className='flex flex-row gap-10 text-light-gray'>
-						<Link href='/' className='cursor-not-allowed'>
-							Trade
-						</Link>
-						<Link href='/' className='text-main-green font-bold mr-6'>
-							Swap
-							<span className='absolute bg-green-100 text-green-800 text-xs font-medium px-2 ml-1 py-0.5 rounded dark:bg-green-900 dark:text-green-300'>
-								New
+						<Link href='/' className='cursor-not-allowed mr-8'>
+							Airdrop
+							<span className='absolute bg-red-100 text-red-800 text-xs font-medium mr-2 ml-1 px-2 py-0.5 rounded dark:bg-red-900 dark:text-red-300'>
+								Claim
 							</span>
+						</Link>
+						<Link href='/' className='text-main-green font-bold'>
+							Swap
 						</Link>
 						<Link href='/' className='cursor-not-allowed'>
 							Liquidity
-						</Link>
-						<Link href='/' className='cursor-not-allowed'>
-							FlashLoan
 						</Link>
 					</div>
 					<ConnectButton />
