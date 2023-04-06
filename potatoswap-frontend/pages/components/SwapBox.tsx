@@ -13,10 +13,10 @@ import ArrowIcon from '../assets/down-arrow.svg';
 const SwapBox = () => {
 	const [tokenOne, setTokenOne] = useState(tokens[0]);
 	const [tokenTwo, setTokenTwo] = useState(tokens[1]);
-	const [tokenOneBalance, setTokenOneBalance] = useState(0);
-	const [tokenTwoBalance, setTokenTwoBalance] = useState(0);
-	const [tokenOneAmount, setTokenOneAmount] = useState(0);
-	const [tokenTwoAmount, setTokenTwoAmount] = useState(0);
+	const [tokenOneBalance, setTokenOneBalance] = useState('');
+	const [tokenTwoBalance, setTokenTwoBalance] = useState('');
+	const [tokenOneAmount, setTokenOneAmount] = useState('');
+	const [tokenTwoAmount, setTokenTwoAmount] = useState('');
 	const [prices, setPrices] = useState(null);
 
 	const { address, isConnected } = useAccount();
@@ -48,13 +48,13 @@ const SwapBox = () => {
 	});
 
 	function changeAmount(e: React.FormEvent<HTMLInputElement>) {
-		setTokenOneAmount(Number(e.currentTarget.value));
+		setTokenOneAmount(e.currentTarget.value);
 	}
 
 	function switchTokens() {
 		setPrices(null);
-		setTokenOneAmount(0);
-		setTokenTwoAmount(0);
+		setTokenOneAmount('');
+		setTokenTwoAmount('');
 		const one = tokenTwo;
 		const two = tokenOne;
 		setTokenOne(one);
@@ -156,7 +156,10 @@ const SwapBox = () => {
 						<p>Balance: {tokenTwoBalance}</p>
 					</div>
 				</div>
-				<button className='flex items-center justify-center h-16 mx-6 mb-8 text-light-green text-2xl bg-dark-green rounded-2xl'>
+				<button
+					className='flex items-center justify-center h-16 mx-6 mb-8 text-light-green text-2xl bg-dark-green rounded-2xl'
+					disabled={!tokenOneAmount || !isConnected}
+				>
 					{isConnected && 'Swap'}
 					{!isConnected && 'Connect to Swap'}
 				</button>
