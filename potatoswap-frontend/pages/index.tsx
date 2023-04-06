@@ -10,6 +10,7 @@ import { PotatoRouterV2 } from '../utils';
 import ethers from 'ethers';
 import Image from 'next/image';
 import SwitchArrow from './assets/switch-arrow.svg';
+import Footer from './components/Footer';
 
 const Home: NextPage = () => {
 	const [tokenOne, setTokenOne] = useState(tokens[0]);
@@ -179,6 +180,9 @@ const Home: NextPage = () => {
 						{!isConnected && 'Connect to Swap'}
 					</button>
 				</div>
+			</div>
+			<div className='fixed bottom-0 w-full'>
+				<Footer />
 			</div>
 		</div>
 	);
